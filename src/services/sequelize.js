@@ -6,8 +6,9 @@ let instance = null;
 
 class Db {
   constructor () {
-    this.sequelize = new Sequelize('digiCook', 'postgres', 'postgres', {
-      host: 'localhost',
+    this.sequelize = new Sequelize(process.env.POSTGRESQL_DB_NAME, process.env.POSTGRESQL_USERNAME, process.env.POSTGRESQL_PASSWORD, {
+      host: process.env.POSTGRESQL_HOST,
+      port: process.env.POSTGRESQL_PORT,
       dialect: 'postgres',
       operatorsAliases: false,
       pool: {
