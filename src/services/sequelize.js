@@ -1,6 +1,7 @@
 'use strict';
 
 import Sequelize from 'sequelize';
+require('dotenv').config();
 
 let instance = null;
 

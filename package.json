@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon --exec babel-node src/server.js",
+    "createTables": "babel-node ./src/createTables",
     "start": "npm run dev",
     "test": "mocha --compilers js:babel-core/register"
   },
