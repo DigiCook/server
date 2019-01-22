@@ -4,9 +4,12 @@
   "description": "",
   "private": true,
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js",
-    "createTables": "babel-node ./src/createTables",
-    "start": "npm run dev",
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "nodemon --exec babel-node dist/server.js",
+    "dev": "npm run start",
+    "createTables": "node dist/createTables.js",
     "test": "mocha --compilers js:babel-core/register"
   },
   "repository": {
@@ -21,13 +24,20 @@
   },
   "homepage": "https://github.com/Alex-Chopard/blank_project#readme",
   "devDependencies": {
+    "@types/cors": "^2.8.4",
+    "@types/express": "^4.16.0",
+    "@types/node": "^10.12.18",
+    "@types/sequelize": "^4.27.34",
+    "@types/dotenv": "^6.1.0",
     "babel-core": "^6.26.3",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.9",
-    "sinon": "^7.2.3"
+    "sinon": "^7.2.3",
+    "tslint": "^5.12.1",
+    "typescript": "^3.2.4"
   },
   "dependencies": {
     "babel-preset-env": "^1.7.0",
