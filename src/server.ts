@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 // routes(app);
 
 app.listen(port, () => {
-  console.log(`Li stening on port ${port}`);
+  console.log(`Listening on port ${port}`);
 });
 
 app.use((req: any, res: any) => {
