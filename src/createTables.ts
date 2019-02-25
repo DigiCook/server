@@ -1,13 +1,12 @@
-import Models = require("./models/index");
+import Models = require("./models");
 import sequelize = require("./services/sequelize");
 
 sequelize.getInstance();
 
 async function load() {
-  const models = Models.default;
-  const loading = Object.keys(models).map(async (key: string) => {
+  const loading = Object.keys(Models).map(async (key: string) => {
     await new Promise((resolve) => {
-      const mod: any = models[key].default;
+      const mod: any = Models[key];
       mod.sync({ force: true }).then(() => {
         console.info(`Table ${key} created !`);
         resolve();

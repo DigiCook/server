@@ -1,9 +1,5 @@
-import Product = require("./Product");
-import TypePlat = require("./TypePlat");
+import product = require("./Product");
+import typePlat = require("./TypePlat");
 
-const modules: any = {
-  Product,
-  TypePlat
-};
-
-export default modules;
+export const Product = product.default;
+export const TypePlat = typePlat.default;

@@ -3,6 +3,7 @@ import cors = require("cors");
 import dotenv = require("dotenv");
 import express = require("express");
 import sequelize = require("./services/sequelize");
+import router = require("./router")
 dotenv.config();
 
 const app = express();
@@ -14,7 +15,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// routes(app);
+router.load(app);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
