@@ -1,5 +1,5 @@
 import product = require("./Product");
 import typePlat = require("./TypePlat");
 
-export const Product = product.default;
-export const TypePlat = typePlat.default;
+export const Product = product;
+export const TypePlat = typePlat;

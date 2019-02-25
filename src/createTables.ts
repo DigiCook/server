@@ -6,8 +6,8 @@ sequelize.getInstance();
 async function load() {
   const loading = Object.keys(Models).map(async (key: string) => {
     await new Promise((resolve) => {
-      const mod: any = Models[key];
-      mod.sync({ force: true }).then(() => {
+      const model: any = Models[key].model;
+      model.sync({ force: true }).then(() => {
         console.info(`Table ${key} created !`);
         resolve();
       }).catch((error: any) => {
