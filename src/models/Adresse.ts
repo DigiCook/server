@@ -3,6 +3,7 @@ import Sequelize = require("sequelize");
 import sequelize = require("../services/sequelize");
 import { Personne } from "./Personne";
 import { Exploitation } from "./Exploitation";
+import { Restaurant } from "./Restaurant";
 
 export const Adresse = sequelize.getInstance().define("Adresse", {
   pays: { type: Sequelize.STRING(50), allowNull: false },
@@ -13,3 +14,4 @@ export const Adresse = sequelize.getInstance().define("Adresse", {
 
 Adresse.hasMany(Personne);
 Adresse.hasMany(Exploitation);
+Adresse.hasMany(Restaurant);
