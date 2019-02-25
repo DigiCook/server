@@ -15,6 +15,11 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use('/api', (req, res, next) => {
+  console.info(`${req.method} ${req.originalUrl} with params: ${JSON.stringify(req.params)} and body: ${JSON.stringify(req.body)}`);
+  next();
+});
+
 router.load(app);
 
 app.listen(port, () => {
