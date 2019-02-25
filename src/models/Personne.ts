@@ -1,6 +1,7 @@
 
 import Sequelize = require("sequelize");
 import sequelize = require("../services/sequelize");
+import { Commande } from "./Commande";
 
 export enum TypePersonne {
   PRODUCTEUR = "produteur",
@@ -20,3 +21,5 @@ export const Personne = sequelize.getInstance().define("Personne", {
     allowNull: false
   },
 });
+
+Personne.hasMany(Commande);
