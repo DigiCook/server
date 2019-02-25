@@ -6,3 +6,4 @@ export const Plat = require("./Plat").Plat;
 export const Product = require("./Product").Product;
 export const Exploitation = require("./Exploitation").Exploitation;
 export const Commande = require("./Commande").Commande;
+export const CommandePlat = require("./CommandePlat").CommandePlat;

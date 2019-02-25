@@ -1,6 +1,7 @@
 
 import Sequelize = require("sequelize");
 import sequelize = require("../services/sequelize");
+import { CommandePlat } from "./CommandePlat";
 
 export const Plat = sequelize.getInstance().define("Plat", {
   nom: { type: Sequelize.STRING(50), allowNull: false },
@@ -8,3 +9,5 @@ export const Plat = sequelize.getInstance().define("Plat", {
   prix: { type: Sequelize.FLOAT, allowNull: false },
   urlPhoto: { type: Sequelize.STRING(50), allowNull: false }
 });
+
+Plat.hasMany(CommandePlat);
