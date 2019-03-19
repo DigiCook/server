@@ -10,9 +10,9 @@ export enum TypePersonne {
 };
 
 export const Personne = sequelize.getInstance().define("Personne", {
-  nom: { type: Sequelize.STRING(50), allowNull: false },
-  prenom: { type: Sequelize.STRING(50), allowNull: false },
-  email: { type: Sequelize.STRING(50), allowNull: false },
+  nom: { type: Sequelize.STRING(255), allowNull: false },
+  prenom: { type: Sequelize.STRING(255), allowNull: false },
+  email: { type: Sequelize.STRING(255), allowNull: false },
   telephone: { type: Sequelize.STRING(10), allowNull: false },
   typePersonne: {
     type: Sequelize.ENUM,
