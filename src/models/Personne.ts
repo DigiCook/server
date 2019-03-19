@@ -22,4 +22,6 @@ export const Personne = sequelize.getInstance().define("Personne", {
   },
 });
 
-Personne.hasMany(Commande);
+export function alterTable () {
+  Personne.hasMany(Commande);
+}

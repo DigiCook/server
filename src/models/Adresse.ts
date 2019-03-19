@@ -12,6 +12,8 @@ export const Adresse = sequelize.getInstance().define("Adresse", {
   complement: { type: Sequelize.STRING(200), allowNull: false }
 });
 
-Adresse.hasMany(Personne);
-Adresse.hasMany(Exploitation);
-Adresse.hasMany(Restaurant);
+export function alterTable () {
+  Adresse.hasMany(Personne);
+  Adresse.hasMany(Exploitation);
+  Adresse.hasMany(Restaurant);
+}

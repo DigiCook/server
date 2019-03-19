@@ -7,5 +7,7 @@ export const Commande = sequelize.getInstance().define("Commande", {
   libelleTable: { type: Sequelize.STRING(50), allowNull: false }
 });
 
-Commande.hasMany(CommandePlat);
+export function alterTable () {
+  Commande.hasMany(CommandePlat);
+}
 

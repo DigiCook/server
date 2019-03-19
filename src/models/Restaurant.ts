@@ -7,4 +7,6 @@ export const Restaurant = sequelize.getInstance().define("Restaurant", {
   nomRestaurant: { type: Sequelize.STRING(50), allowNull: false }
 });
 
-Restaurant.hasMany(Personne);
+export function alterTable () {
+  Restaurant.hasMany(Personne);
+}

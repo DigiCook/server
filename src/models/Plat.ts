@@ -10,4 +10,6 @@ export const Plat = sequelize.getInstance().define("Plat", {
   urlPhoto: { type: Sequelize.STRING(50), allowNull: false }
 });
 
-Plat.hasMany(CommandePlat);
+export function alterTable () {
+  Plat.hasMany(CommandePlat);
+}
