@@ -8,3 +8,4 @@ export const Commande = require("./Commande").Commande;
 export const CommandePlat = require("./CommandePlat").CommandePlat;
 export const Menu = require("./Menu").Menu;
 export const Ingredient = require("./Ingredient").Ingredient;
+export const PlatIngredient = require("./PlatIngredient").PlatIngredient;
