@@ -3,7 +3,7 @@ import Sequelize = require("sequelize");
 import sequelize = require("../services/sequelize");
 import { TypePlat } from "./TypePlat";
 
-export const Plat = sequelize.getInstance().define("Plat", {
+export const Plat = sequelize.getInstance().define("plat", {
   nom: { type: Sequelize.STRING(255), allowNull: false },
   description: { type: Sequelize.STRING(255), allowNull: false },
   prix: { type: Sequelize.FLOAT, allowNull: false },
@@ -11,5 +11,7 @@ export const Plat = sequelize.getInstance().define("Plat", {
 });
 
 export function alterTable () {
-  Plat.belongsTo(TypePlat);
+  return {
+    Plat_TypePlat: Plat.belongsTo(TypePlat)
+  }
 }

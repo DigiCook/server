@@ -1,5 +1,5 @@
 import { TypePlat } from './TypePlat';
-import { Plat } from './Plat';
+import { Plat, alterTable } from './Plat';
 
 async function load () {
   console.info('[DataTest:load] Start to create Data Test !');
@@ -12,10 +12,11 @@ async function load () {
     { libelle: 'Boisson' }
   ]
 
-  await Promise.all(typePlats.map(typePlat => {
+  await Promise.all(typePlats.map((typePlat, key) => {
     return new Promise(resolve => {
       TypePlat.create(typePlat).then(res => {
         console.info(`[DataTest:load] TypePlat ${res.libelle} created.`);
+        typePlats[key] = res
         resolve(true);
       }).catch(err => {
         console.error('[DataTest:load] ERROR :', err);
@@ -31,13 +32,18 @@ async function load () {
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       prix: 24.5,
       urlPhoto: 'somethink',
-      TypePlat: typePlats[0]
+      TypePlatId: 0
     }
   ];
 
   await Promise.all(plats.map(plat => {
     return new Promise(resolve => {
-      Plat.create(plat).then(res => {
+      console.log(plat)
+      Plat.create(plat, {
+        include: [{
+          association: alterTable().Plat_TypePlat
+        }]
+      }).then(res => {
         console.info(`[DataTest:load] Plat ${res.nom} created.`);
         resolve(true);
       }).catch(err => {
