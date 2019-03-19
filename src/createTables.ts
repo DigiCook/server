@@ -4,11 +4,15 @@ import sequelize = require("./services/sequelize");
 sequelize.getInstance();
 
 async function load() {
-  // Create Tables.
+  const keys = Object.keys(Models);
+
+  // Create Tabl
   console.info('[CreateTable:load] *** Start create tables ***');
-  await Promise.all(Object.keys(Models).map(key => {
-    return new Promise(resolve => {
+  for (let i = 0; i < keys.length; i++) {
+    await new Promise(resolve => {
+      const key = keys[i];
       const model = Models[key][key];
+
       model.sync({ force: true }).then(() => {
         console.info(`[CreateTable:load] Table ${key} created !`);
         resolve();
@@ -16,14 +20,13 @@ async function load() {
         console.error(`[CreateTable:load] Unable to create Table ${key} !`, error);
         resolve();
       });
-    })
-  }));
+    });
+  }
 
   console.info('[CreateTable:load] *** All tables created ***');
 
   // Start to execute alterTables for add Fk.
   console.info('[CreateTable:load] *** Start to execute alterTables ***');
-  const keys = Object.keys(Models);
 
   for (let i = 0; i < keys.length; i++) {
     await new Promise(resolve => {

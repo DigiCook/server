@@ -1,7 +1,7 @@
 
 import Sequelize = require("sequelize");
 import sequelize = require("../services/sequelize");
-import { CommandePlat } from "./CommandePlat";
+import { TypePlat } from "./TypePlat";
 
 export const Plat = sequelize.getInstance().define("Plat", {
   nom: { type: Sequelize.STRING(255), allowNull: false },
@@ -11,5 +11,5 @@ export const Plat = sequelize.getInstance().define("Plat", {
 });
 
 export function alterTable () {
-  Plat.hasMany(CommandePlat);
+  Plat.belongsTo(TypePlat);
 }
