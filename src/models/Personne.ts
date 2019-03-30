@@ -2,6 +2,8 @@
 import Sequelize = require("sequelize");
 import sequelize = require("../services/sequelize");
 import { Commande } from "./Commande";
+import { Exploitation } from "./Exploitation";
+import { Adresse } from "./Adresse";
 
 export enum TypePersonne {
   PRODUCTEUR = "produteur",
@@ -12,6 +14,8 @@ export enum TypePersonne {
 export class Personne{
   // Repations
   static fromCommande;
+  static toExploitation;
+  static toAdresse;
 
   static model = sequelize.getInstance().define("personne", {
     nom: { type: Sequelize.STRING(255), allowNull: false },
@@ -27,6 +31,8 @@ export class Personne{
   });
 
   static alterTable () {
-    Personne.model.hasMany(Commande.model);
+    Personne.fromCommande = Personne.model.hasMany(Commande.model);
+    Personne.toExploitation = Personne.model.belongsTo(Exploitation.model);
+    Personne.toAdresse = Personne.model.belongsTo(Adresse.model);
   }
 }
