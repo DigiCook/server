@@ -1,20 +1,22 @@
 import { TypePlat } from './TypePlat';
-import { Plat, alterTable } from './Plat';
+import { Plat } from './Plat';
 
 async function load () {
   console.info('[DataTest:load] Start to create Data Test !');
 
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ ||| TYPE_PLAT ||| _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
   // Create Type Plat.
   const typePlats = [
-    { libelle: 'Entrée' },
-    { libelle: 'Plat' },
-    { libelle: 'Désert' },
-    { libelle: 'Boisson' }
+    { libelle: 'Entrée' }, //  1
+    { libelle: 'Plat' },   //  2
+    { libelle: 'Désert' }, //  3
+    { libelle: 'Boisson' } //  4
   ]
 
   await Promise.all(typePlats.map((typePlat, key) => {
     return new Promise(resolve => {
-      TypePlat.create(typePlat).then(res => {
+      TypePlat.model.create(typePlat).then(res => {
         console.info(`[DataTest:load] TypePlat ${res.libelle} created.`);
         typePlats[key] = res
         resolve(true);
@@ -25,23 +27,25 @@ async function load () {
     });
   }));
 
-  // Create Plat.
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ ||| PLAT ||| _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+// Create Plat.
   const plats = [
-    {
+    { // 1
       nom: 'Steak Frites',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       prix: 24.5,
       urlPhoto: 'somethink',
-      TypePlatId: 0
+      typePlatId: 2
     }
   ];
 
+  Plat.alterTable()
   await Promise.all(plats.map(plat => {
     return new Promise(resolve => {
-      console.log(plat)
-      Plat.create(plat, {
+      Plat.model.create(plat, {
         include: [{
-          association: alterTable().Plat_TypePlat
+          association: Plat.toTypePlat
         }]
       }).then(res => {
         console.info(`[DataTest:load] Plat ${res.nom} created.`);

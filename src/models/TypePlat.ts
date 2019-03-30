@@ -3,10 +3,15 @@ import Sequelize = require("sequelize");
 import sequelize = require("../services/sequelize");
 import { Plat } from "./Plat";
 
-export const TypePlat = sequelize.getInstance().define("type_plat", {
-  libelle: { type: Sequelize.STRING(255), allowNull: false }
-});
+export class TypePlat {
+  // Relations
+  static fromPlat;
 
-export function alterTable () {
-  TypePlat.Plats = TypePlat.hasMany(Plat);
+  static model = sequelize.getInstance().define("type_plat", {
+    libelle: { type: Sequelize.STRING(255), allowNull: false }
+  });
+
+  static alterTable () {
+    TypePlat.fromPlat = TypePlat.model.hasMany(Plat.model);
+  }
 }
