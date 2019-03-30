@@ -12,7 +12,7 @@ export class Adresse {
   static formRestaurant;
 
 
-  static model = sequelize.getInstance().define("Adresse", {
+  static model = sequelize.getInstance().define("adresse", {
     pays: { type: Sequelize.STRING(255), allowNull: false },
     ville: { type: Sequelize.STRING(255), allowNull: false },
     codePostal: { type: Sequelize.INTEGER, allowNull: false },

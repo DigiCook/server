@@ -4,11 +4,17 @@ import sequelize = require("../services/sequelize");
 import { Commande } from "./Commande";
 import { Plat } from "./Plat";
 
-export const CommandePlat = sequelize.getInstance().define("Commande_Plat", {
-  prixPlat: { type: Sequelize.FLOAT, allowNull: false }
-});
+export class CommandePlat {
+  // Relations
+  static toCommande;
+  static toPlat;
 
-export function alterTable () {
-  CommandePlat.belongsTo(Commande);
-  CommandePlat.belongsTo(Plat);
+  static model = sequelize.getInstance().define("commande_plat", {
+    prixPlat: { type: Sequelize.FLOAT, allowNull: false }
+  });
+
+  static alterTable () {
+    CommandePlat.model.belongsTo(Commande.model);
+    CommandePlat.model.belongsTo(Plat.model);
+  }
 }

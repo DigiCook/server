@@ -3,9 +3,15 @@ import sequelize = require("../services/sequelize");
 import { Restaurant } from "./Restaurant";
 import { Menu } from "./Menu";
 
-export const RestaurantMenu = sequelize.getInstance().define("Restaurant_Menu", {});
+export class RestaurantMenu {
+  // Relations
+  static toResyaurant;
+  static toMenu;
 
-export function alterTable () {
-  RestaurantMenu.belongsTo(Restaurant);
-  RestaurantMenu.belongsTo(Menu);
+  static model = sequelize.getInstance().define("restaurant_menu", {});
+
+  static alterTable () {
+    RestaurantMenu.model.belongsTo(Restaurant.model);
+    RestaurantMenu.model.belongsTo(Menu.model);
+  }
 }

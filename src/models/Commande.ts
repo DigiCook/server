@@ -2,8 +2,9 @@
 import Sequelize = require("sequelize");
 import sequelize = require("../services/sequelize");
 
-export const Commande = sequelize.getInstance().define("Commande", {
-  libelleTable: { type: Sequelize.STRING(255), allowNull: false }
-});
-
+export class Commande {
+  static model = sequelize.getInstance().define("commande", {
+    libelleTable: { type: Sequelize.STRING(255), allowNull: false }
+  });
+} 
 
