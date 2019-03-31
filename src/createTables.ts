@@ -11,7 +11,7 @@ async function load() {
   for (let i = 0; i < keys.length; i++) {
     await new Promise(resolve => {
       const key = keys[i];
-      const model = Models[key][key];
+      const model = Models[key].model;
 
       model.sync({ force: true }).then(() => {
         console.info(`[CreateTable:load] Table ${key} created !`);
@@ -38,7 +38,7 @@ async function load() {
         table.alterTable();
 
         // Update the model in db.
-        table[key].sync({ force: true }).then(() => {
+        table.model.sync({ force: true }).then(() => {
           console.info(`[CreateTable:load] Table ${key} synced !`);
           resolve();
         }).catch((error: any) => {

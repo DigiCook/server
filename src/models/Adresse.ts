@@ -5,15 +5,23 @@ import { Personne } from "./Personne";
 import { Exploitation } from "./Exploitation";
 import { Restaurant } from "./Restaurant";
 
-export const Adresse = sequelize.getInstance().define("Adresse", {
-  pays: { type: Sequelize.STRING(255), allowNull: false },
-  ville: { type: Sequelize.STRING(255), allowNull: false },
-  codePostal: { type: Sequelize.INTEGER, allowNull: false },
-  complement: { type: Sequelize.STRING(255), allowNull: false }
-});
+export class Adresse {
+  // Relations
+  static formPersonne;
+  static formExploitation;
+  static formRestaurant;
 
-export function alterTable () {
-  Adresse.hasMany(Personne);
-  Adresse.hasMany(Exploitation);
-  Adresse.hasMany(Restaurant);
+
+  static model = sequelize.getInstance().define("adresse", {
+    pays: { type: Sequelize.STRING(255), allowNull: false },
+    ville: { type: Sequelize.STRING(255), allowNull: false },
+    codePostal: { type: Sequelize.INTEGER, allowNull: false },
+    complement: { type: Sequelize.STRING(255), allowNull: false }
+  });
+
+  static alterTable () {
+    Adresse.formPersonne = Adresse.model.hasMany(Personne.model);
+    Adresse.formExploitation = Adresse.model.hasMany(Exploitation.model);
+    Adresse.formRestaurant = Adresse.model.hasMany(Restaurant.model);
+  }
 }
