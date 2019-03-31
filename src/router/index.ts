@@ -1,9 +1,9 @@
-import TypePlatContoller = require('../controllers/TypePlatController');
+import { TypePlatController } from '../controllers/TypePlatController'
 
 export function load (app) {
   // Note Routes
   app.route('/api/typeplat')
-    .get(TypePlatContoller.list)
+    .get(TypePlatController.getAll)
     // .post(note.createNote)
 
   app.route('/api/note/:noteId')
