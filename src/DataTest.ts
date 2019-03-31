@@ -1,15 +1,18 @@
-import { TypePlat } from './TypePlat';
-import { Plat } from './Plat';
-import { Adresse } from './Adresse';
-import { Exploitation } from './Exploitation';
-import { Personne, TypePersonne } from './Personne';
-import { Restaurant } from './Restaurant';
-import { Menu } from './Menu';
-import { Ingredient } from './Ingredient';
-import { PlatIngredient } from './PlatIngredient';
-import { MenuPlat } from './MenuPlat';
-import { RestaurantPlat } from './RestaurantPlat';
-import { RestaurantMenu } from './RestaurantMenu';
+import {
+  TypePlat,
+  Plat,
+  Adresse,
+  Exploitation,
+  Personne,
+  Restaurant,
+  Menu,
+  Ingredient,
+  PlatIngredient,
+  MenuPlat,
+  RestaurantPlat,
+  RestaurantMenu
+} from './models'
+import { TypePersonne } from './models/Personne';
 
 async function load () {
   console.info('[DataTest:load] Start to create Data Test !');
