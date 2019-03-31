@@ -11,7 +11,7 @@ export class RestaurantPlat {
   static model = sequelize.getInstance().define("restaurant_plat", {});
 
   static alterTable () {
-    RestaurantPlat.model.belongsTo(Restaurant.model);
-    RestaurantPlat.model.belongsTo(Plat.model);
+    RestaurantPlat.toRestaurant = RestaurantPlat.model.belongsTo(Restaurant.model);
+    RestaurantPlat.toPlat = RestaurantPlat.model.belongsTo(Plat.model);
   }
 }

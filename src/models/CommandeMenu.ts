@@ -14,7 +14,7 @@ export class CommandeMenu {
   });
 
   static alterTable () {
-    CommandeMenu.model.belongsTo(Commande.model);
-    CommandeMenu.model.belongsTo(Menu.model);
+    CommandeMenu.toCommande = CommandeMenu.model.belongsTo(Commande.model);
+    CommandeMenu.toMenu = CommandeMenu.model.belongsTo(Menu.model);
   }
 }

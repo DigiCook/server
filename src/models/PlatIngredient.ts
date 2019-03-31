@@ -11,7 +11,7 @@ export class PlatIngredient {
   static model = sequelize.getInstance().define("plat_ingredient", {});
 
   static alterTable () {
-    PlatIngredient.model.belongsTo(Ingredient.model);
-    PlatIngredient.model.belongsTo(Plat.model);
+    PlatIngredient.toIngredient = PlatIngredient.model.belongsTo(Ingredient.model);
+    PlatIngredient.toPlat = PlatIngredient.model.belongsTo(Plat.model);
   }
 }

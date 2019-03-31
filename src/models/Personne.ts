@@ -4,6 +4,7 @@ import sequelize = require("../services/sequelize");
 import { Commande } from "./Commande";
 import { Exploitation } from "./Exploitation";
 import { Adresse } from "./Adresse";
+import { Restaurant } from "./Restaurant";
 
 export enum TypePersonne {
   PRODUCTEUR = "produteur",
@@ -16,6 +17,7 @@ export class Personne{
   static fromCommande;
   static toExploitation;
   static toAdresse;
+  static toRestaurant;
 
   static model = sequelize.getInstance().define("personne", {
     nom: { type: Sequelize.STRING(255), allowNull: false },
@@ -34,5 +36,6 @@ export class Personne{
     Personne.fromCommande = Personne.model.hasMany(Commande.model);
     Personne.toExploitation = Personne.model.belongsTo(Exploitation.model);
     Personne.toAdresse = Personne.model.belongsTo(Adresse.model);
+    Personne.toRestaurant = Personne.model.belongsTo(Restaurant.model);
   }
 }

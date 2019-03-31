@@ -14,7 +14,7 @@ export class CommandePlat {
   });
 
   static alterTable () {
-    CommandePlat.model.belongsTo(Commande.model);
-    CommandePlat.model.belongsTo(Plat.model);
+    CommandePlat.toCommande = CommandePlat.model.belongsTo(Commande.model);
+    CommandePlat.toPlat = CommandePlat.model.belongsTo(Plat.model);
   }
 }
