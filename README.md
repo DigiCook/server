@@ -4,8 +4,10 @@
 ``` bash
 # Installation des dependences npm.
 npm install
-# Creer les tables de la BDD.
+# Créer les tables de la BDD.
 npm run createTables
+# Créer la base de données et ajouter les données de test.
+npm run load
 
 # Lancer le serveur en development.
 npm run dev
