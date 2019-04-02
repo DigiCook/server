@@ -13,4 +13,16 @@ export class PlatRepository {
       });
     });
   }
+
+  static getById (id: number) {
+    return new Promise((resolve, reject) => {
+      Plat.model.findOne({ where: { id } }).then(plat => {
+        console.info('[PlatRepository:getById] Menu : ', plat);
+        resolve(plat);
+      }).catch(error => {
+        console.error('[PlatRepository:getById]', error);
+        reject(error);
+      });
+    })
+  }
 }
