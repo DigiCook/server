@@ -18,7 +18,7 @@ export class PlatRepository {
 
   static getById (id: number) {
     return new Promise((resolve, reject) => {
-      if (id !== null && id !== undefined) {
+      if (id !== null && id !== undefined && !isNaN(Number(id))) {
         Plat.model.findOne({ where: { id } }).then(plat => {
           if (plat) {
             console.info(`[PlatRepository:getById] Plat : ${plat.nom}`);

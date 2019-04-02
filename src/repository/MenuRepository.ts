@@ -18,7 +18,7 @@ export class MenuRepository {
 
   static getById (id: number) {
     return new Promise((resolve, reject) => {
-      if (id !== null && id !== undefined) {
+      if (id !== null && id !== undefined && !isNaN(Number(id))) {
         Menu.model.findOne({ where: { id } }).then(menu => {
           if (menu) {
             console.info(`[MenuRepository:getById] Menu : ${menu.nom}`);

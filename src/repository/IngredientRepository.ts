@@ -18,7 +18,7 @@ export class IngredientRepository {
 
   static getById (id: number) {
     return new Promise((resolve, reject) => {
-      if (id !== null && id !== undefined) {
+      if (id !== null && id !== undefined && !isNaN(Number(id))) {
         Ingredient.model.findOne({ where: { id } }).then(ingredient => {
           if (ingredient) {
             console.info(`[IngredientRepository:getById] Ingredient : ${ingredient.nom}`);

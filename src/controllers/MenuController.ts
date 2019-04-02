@@ -7,7 +7,7 @@ export class MenuController {
       res.status(200).json({ code: 200, data: menus });
     }).catch(error => {
       console.error('[MenuController:getAll]', error);
-      res.status(400).send('An Error occure !');
+      res.status(400).json({ code: 400, message: 'An Error occure !' });
     });
   }
 
@@ -16,13 +16,17 @@ export class MenuController {
 
     if (params && params.hasOwnProperty('menuId')) {
       MenuRepository.getById(params.menuId).then(menu => {
-        res.status(200).json({ code: 200, data: menu });
+        if (menu) {
+          res.status(200).json({ code: 200, data: menu });
+        } else {
+          res.status(400).json({ code: 404, message: 'Not found !' });
+        }
       }).catch(error => {
         console.error('[MenuController:getOne]', error);
-        res.status(400).send('An Error occure !');
+        res.status(400).json({ code: 400, message: 'An Error occure !' });
       });
     } else {
-      res.status(400).send('Attribute(s) missing !');
+      res.status(400).json({ code: 400, message: 'Attribute(s) missing !' });
     }
   }
 }
