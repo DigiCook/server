@@ -6,14 +6,14 @@ import { Menu } from "./Menu";
 
 export class CommandeMenu {
   // Relations
-  static toCommande;
-  static toMenu;
+  public static toCommande;
+  public static toMenu;
 
-  static model = sequelize.getInstance().define("commande_menu", {
+  public static model = sequelize.getInstance().define("commande_menu", {
     prixMenu: { type: Sequelize.FLOAT, allowNull: false }
   });
 
-  static alterTable () {
+  public static alterTable() {
     CommandeMenu.toCommande = CommandeMenu.model.belongsTo(Commande.model);
     CommandeMenu.toMenu = CommandeMenu.model.belongsTo(Menu.model);
   }

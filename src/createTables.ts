@@ -7,10 +7,9 @@ async function load() {
   const keys = Object.keys(Models);
 
   // Create Tabl
-  console.info('[CreateTable:load] *** Start create tables ***');
-  for (let i = 0; i < keys.length; i++) {
-    await new Promise(resolve => {
-      const key = keys[i];
+  console.info("[CreateTable:load] *** Start create tables ***");
+  for (const key of keys) {
+    await new Promise((resolve) => {
       const model = Models[key].model;
 
       model.sync({ force: true }).then(() => {
@@ -23,17 +22,16 @@ async function load() {
     });
   }
 
-  console.info('[CreateTable:load] *** All tables created ***');
+  console.info("[CreateTable:load] *** All tables created ***");
 
   // Start to execute alterTables for add Fk.
-  console.info('[CreateTable:load] *** Start to execute alterTables ***');
+  console.info("[CreateTable:load] *** Start to execute alterTables ***");
 
-  for (let i = 0; i < keys.length; i++) {
-    await new Promise(resolve => {
-      const key = keys[i];
+  for (const key of keys) {
+    await new Promise((resolve) => {
 
       const table = Models[key];
-      if (table.hasOwnProperty('alterTable')) {
+      if (table.hasOwnProperty("alterTable")) {
         // Execute query.
         table.alterTable();
 
@@ -50,8 +48,8 @@ async function load() {
       }
     });
   }
-  console.info('[CreateTable:load] *** All alterTables executed ***');
-  console.info('[CreateTable:load] Finish');
+  console.info("[CreateTable:load] *** All alterTables executed ***");
+  console.info("[CreateTable:load] Finish");
 
   process.exit(0);
 }

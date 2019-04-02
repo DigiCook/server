@@ -5,12 +5,12 @@ import { Plat } from "./Plat";
 
 export class PlatIngredient {
   // Relations
-  static toIngredient;
-  static toPlat;
+  public static toIngredient;
+  public static toPlat;
 
-  static model = sequelize.getInstance().define("plat_ingredient", {});
+  public static model = sequelize.getInstance().define("plat_ingredient", {});
 
-  static alterTable () {
+  public static alterTable() {
     PlatIngredient.toIngredient = PlatIngredient.model.belongsTo(Ingredient.model);
     PlatIngredient.toPlat = PlatIngredient.model.belongsTo(Plat.model);
   }

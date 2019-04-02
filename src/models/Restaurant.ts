@@ -1,19 +1,19 @@
 
 import Sequelize = require("sequelize");
 import sequelize = require("../services/sequelize");
-import { Personne } from "./Personne";
 import { Adresse } from "./Adresse";
+import { Personne } from "./Personne";
 
 export class Restaurant {
   // Relations
-  static fromPersonne;
-  static toAdresse;
+  public static fromPersonne;
+  public static toAdresse;
 
-  static model = sequelize.getInstance().define("restaurant", {
+  public static model = sequelize.getInstance().define("restaurant", {
     nom: { type: Sequelize.STRING(255), allowNull: false }
   });
 
-  static alterTable () {
+  public static alterTable() {
     Restaurant.fromPersonne = Restaurant.model.hasMany(Personne.model);
     Restaurant.toAdresse = Restaurant.model.belongsTo(Adresse.model);
   }

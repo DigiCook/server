@@ -6,14 +6,14 @@ import { Plat } from "./Plat";
 
 export class CommandePlat {
   // Relations
-  static toCommande;
-  static toPlat;
+  public static toCommande;
+  public static toPlat;
 
-  static model = sequelize.getInstance().define("commande_plat", {
+  public static model = sequelize.getInstance().define("commande_plat", {
     prixPlat: { type: Sequelize.FLOAT, allowNull: false }
   });
 
-  static alterTable () {
+  public static alterTable() {
     CommandePlat.toCommande = CommandePlat.model.belongsTo(Commande.model);
     CommandePlat.toPlat = CommandePlat.model.belongsTo(Plat.model);
   }

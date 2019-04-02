@@ -1,16 +1,16 @@
 
 import sequelize = require("../services/sequelize");
-import { Restaurant } from "./Restaurant";
 import { Plat } from "./Plat";
+import { Restaurant } from "./Restaurant";
 
 export class RestaurantPlat {
   // Relations
-  static toRestaurant;
-  static toPlat;
+  public static toRestaurant;
+  public static toPlat;
 
-  static model = sequelize.getInstance().define("restaurant_plat", {});
+  public static model = sequelize.getInstance().define("restaurant_plat", {});
 
-  static alterTable () {
+  public static alterTable() {
     RestaurantPlat.toRestaurant = RestaurantPlat.model.belongsTo(Restaurant.model);
     RestaurantPlat.toPlat = RestaurantPlat.model.belongsTo(Plat.model);
   }

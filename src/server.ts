@@ -2,8 +2,8 @@ import bodyParser = require("body-parser");
 import cors = require("cors");
 import dotenv = require("dotenv");
 import express = require("express");
+import router = require("./router");
 import sequelize = require("./services/sequelize");
-import router = require("./router")
 dotenv.config();
 
 const app = express();
@@ -15,7 +15,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/api', (req, res, next) => {
+app.use("/api", (req, res, next) => {
   console.info(`${req.method} ${req.originalUrl} with params: ${JSON.stringify(req.params)} and body: ${JSON.stringify(req.body)}`);
   next();
 });
