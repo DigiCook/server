@@ -17,7 +17,7 @@ export class PlatController {
       PlatRepository.getById(params.platId).then(plat => {
         res.status(200).json({ code: 200, data: plat });
       }).catch(error => {
-        console.error('[MenuController:getAll]', error);
+        console.error('[PlatController:getOne]', error);
         res.status(400).send('An Error occure !');
       });
     } else {

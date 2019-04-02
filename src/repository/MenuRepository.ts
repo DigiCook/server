@@ -23,6 +23,6 @@ export class MenuRepository {
         console.error('[MenuRepository:getById]', error);
         reject(error);
       });
-    })
+    });
   }
 }

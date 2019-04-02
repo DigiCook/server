@@ -18,7 +18,7 @@ export class MenuController {
       MenuRepository.getById(params.menuId).then(menu => {
         res.status(200).json({ code: 200, data: menu });
       }).catch(error => {
-        console.error('[MenuController:getAll]', error);
+        console.error('[MenuController:getOne]', error);
         res.status(400).send('An Error occure !');
       });
     } else {
