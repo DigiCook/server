@@ -5,7 +5,7 @@ export class IngredientRepository {
   static getAll () {
     return new Promise((resolve, reject) => {
       Ingredient.model.findAll().then(result => {
-        console.info('[IngredientRepository:getAll] All Plat size : ', result.length);
+        console.info(`[IngredientRepository:getAll] All Plat size : ${result.length}`);
         resolve(result);
       }).catch(error => {
         console.error('[IngredientRepository:getAll]', error);
@@ -17,7 +17,7 @@ export class IngredientRepository {
   static getById (id: number) {
     return new Promise((resolve, reject) => {
       Ingredient.model.findOne({ where: { id } }).then(ingredient => {
-        console.info('[IngredientRepository:getById] Menu : ', ingredient);
+        console.info(`[IngredientRepository:getById] Ingredient : ${ingredient.nom}`);
         resolve(ingredient);
       }).catch(error => {
         console.error('[IngredientRepository:getById]', error);

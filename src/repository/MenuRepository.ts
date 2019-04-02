@@ -17,7 +17,7 @@ export class MenuRepository {
   static getById (id: number) {
     return new Promise((resolve, reject) => {
       Menu.model.findOne({ where: { id } }).then(menu => {
-        console.info('[MenuRepository:getById] Menu : ', menu);
+        console.info(`[MenuRepository:getById] Menu : ${menu.nom}`);
         resolve(menu);
       }).catch(error => {
         console.error('[MenuRepository:getById]', error);
