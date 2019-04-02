@@ -49,14 +49,14 @@ async function load() {
       nom: "Steak Frites",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       prix: 24.5,
-      urlPhoto: "somethink",
+      urlPhoto: "https://media1.s-nbcnews.com/j/newscms/2017_20/1215042/food-today-170517-tease3_d47a6fa4727bee5705981981e47986aa.today-inline-large.jpg",
       typePlatId: typePlats[1].id
     },
     { // 1
       nom: "Tarte aux Pommes",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       prix: 24.5,
-      urlPhoto: "somethink",
+      urlPhoto: "https://assets.afcdn.com/recipe/20180705/80308_w420h344c1cx1944cy2592cxt0cyt0cxb3888cyb5184.jpg",
       typePlatId: typePlats[2].id
     }
   ];
@@ -234,22 +234,22 @@ async function load() {
     { // 0
       nom: "Menu enfant",
       description: "c'est un menu, pour les enfants",
-      urlPhoto: "chépasadéterminer"
+      urlPhoto: "https://dinersburger.fr/cache/img/media.zelty.fr.images.289.2941-440x440.png"
     },
     {
       nom: "Menu enfant vegan",
       description: "c'est un menu, pour les enfants vegan",
-      urlPhoto: "chépasadéterminer"
+      urlPhoto: "https://tacodelmar.com/wp-content/uploads/2016/12/16TDM001_MenuFeaturedImage_800x800_vegetarian-1.jpg"
     },
     {
-      nom: "Menu gros",
+      nom: "Menu Savoyard",
       description: "Le gras c'est la vie",
-      urlPhoto: "chépasadéterminer"
+      urlPhoto: "https://static.750g.com/images/auto-525/dae8686192b04029793e2c6f3f374c44/thinkstockphotos-874481434.jpg"
     },
     {
-      nom: "Menu pas cher",
+      nom: "Menu economique",
       description: "Menu pour les pauvres et les radins",
-      urlPhoto: "chépasadéterminer"
+      urlPhoto: "http://www.lamaisonclose.org/wp/wp-content/uploads/2011/02/estomac_plein_assiette_vide-600x600.jpg"
     }
   ];
 
