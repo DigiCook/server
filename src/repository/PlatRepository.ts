@@ -37,4 +37,25 @@ export class PlatRepository {
       }
     });
   }
+
+  public static getByTypePlatId(id: number) {
+    return new Promise((resolve, reject) => {
+      if (id !== null && id !== undefined && !isNaN(Number(id))) {
+        Plat.model.findAll({
+          where: { typePlatId: id },
+          attributes: ["id", "nom", "prix"]
+        }).then((result) => {
+          // If result is null or undefined, send an empty array.
+          result = result ? result : [];
+          console.info(`[PlatRepository:getAll] All Plat size : ${result.length} with typePlatId ${id}`);
+          resolve(result);
+        }).catch((error) => {
+          console.error("[PlatRepository:getAll]", error);
+          reject(error);
+        });
+      } else {
+        resolve(null);
+      }
+    });
+  }
 }
