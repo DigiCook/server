@@ -236,6 +236,21 @@ async function load () {
       nom: "Menu enfant",
       description: "c'est un menu, pour les enfants",
       urlPhoto: "chépasadéterminer"
+    },
+    {
+      nom: "Menu enfant",
+      description: "c'est un menu, pour les enfants",
+      urlPhoto: "chépasadéterminer"
+    },
+    {
+      nom: "Menu enfant",
+      description: "c'est un menu, pour les enfants",
+      urlPhoto: "chépasadéterminer"
+    },
+    {
+      nom: "Menu enfant",
+      description: "c'est un menu, pour les enfants",
+      urlPhoto: "chépasadéterminer"
     }
   ];
 
