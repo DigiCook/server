@@ -4,7 +4,9 @@ export class MenuRepository {
 
   static getAll () {
     return new Promise((resolve, reject) => {
-      Menu.model.findAll().then(result => {
+      Menu.model.findAll({
+        attributes: ['id', 'nom', 'urlPhoto']
+      }).then(result => {
         // If result is null or undefined, send an empty array.
         result = result ? result : [];
         console.info(`[MenuRepository:getAll] All Menu size : ${result.length}`);

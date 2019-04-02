@@ -4,7 +4,9 @@ export class IngredientRepository {
 
   static getAll () {
     return new Promise((resolve, reject) => {
-      Ingredient.model.findAll().then(result => {
+      Ingredient.model.findAll({
+        attributes: ['id', 'nom']
+      }).then(result => {
         // If result is null or undefined, send an empty array.
         result = result ? result : [];
         console.info(`[IngredientRepository:getAll] All Plat size : ${result.length}`);

@@ -4,7 +4,9 @@ export class PlatRepository {
 
   static getAll () {
     return new Promise((resolve, reject) => {
-      Plat.model.findAll().then(result => {
+      Plat.model.findAll({
+        attributes: ['id', 'nom', 'prix']
+      }).then(result => {
         // If result is null or undefined, send an empty array.
         result = result ? result : [];
         console.info(`[PlatRepository:getAll] All Plat size : ${result.length}`);
