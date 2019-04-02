@@ -85,28 +85,28 @@ async function load () {
 
   const adresses: any = [
     { // 0
-      pays: "France",
-      ville: "Megevette",
+      pays: 'France',
+      ville: 'Megevette',
       codePostal: 74490,
-      complement: "3 grande rue du grand pre"
+      complement: '3 grande rue du grand pre'
     },
     { // 1
-      pays: "France",
-      ville: "Annecy",
+      pays: 'France',
+      ville: 'Annecy',
       codePostal: 74000,
-      complement: "17 faubourg sainte claire"
+      complement: '17 faubourg sainte claire'
     },
     { // 2
-      pays: "France",
-      ville: "Megevette",
+      pays: 'France',
+      ville: 'Megevette',
       codePostal: 74490,
-      complement: "3 rue chez martin"
+      complement: '3 rue chez martin'
     },
     { // 3
-      pays: "France",
-      ville: "Annecy",
+      pays: 'France',
+      ville: 'Annecy',
       codePostal: 74000,
-      complement: "12 faubourg sainte claire"
+      complement: '12 faubourg sainte claire'
     }
   ];
 
@@ -155,7 +155,7 @@ async function load () {
 
   const restaurants: any = [
     { // 0
-      nom: "La Sapaudia",
+      nom: 'La Sapaudia',
       adresseId: adresses[2].id,
     }
   ];
@@ -182,27 +182,27 @@ async function load () {
 
   const personnes: any = [
     { // 0
-      nom: "Pierre",
-      prenom: "Jean",
-      email: "client-jean@gmail.com",
-      telephone: "0101010101",
+      nom: 'Pierre',
+      prenom: 'Jean',
+      email: 'client-jean@gmail.com',
+      telephone: '0101010101',
       typePersonne: TypePersonne.CLIENT,
       adresseId: adresses[0].id,
     },
     { // 1
-      nom: "Martin",
-      prenom: "Michel",
-      email: "restaurateur-michel@gmail.com",
-      telephone: "0202020202",
+      nom: 'Martin',
+      prenom: 'Michel',
+      email: 'restaurateur-michel@gmail.com',
+      telephone: '0202020202',
       typePersonne: TypePersonne.RESTAURATEUR,
       adresseId: adresses[1].id,
       restaurantId: restaurants[0].id
     },
     { // 2
-      nom: "Durand",
-      prenom: "paul",
-      email: "producteur-paul@gmail.com",
-      telephone: "0303030303",
+      nom: 'Durand',
+      prenom: 'paul',
+      email: 'producteur-paul@gmail.com',
+      telephone: '0303030303',
       typePersonne: TypePersonne.PRODUCTEUR,
       exploitationId: exploitations[0].id,
       adresseId: adresses[2].id
@@ -233,24 +233,24 @@ async function load () {
 
   const menus: any = [
     { // 0
-      nom: "Menu enfant",
-      description: "c'est un menu, pour les enfants",
-      urlPhoto: "chépasadéterminer"
+      nom: 'Menu enfant',
+      description: 'c\'est un menu, pour les enfants',
+      urlPhoto: 'chépasadéterminer'
     },
     {
-      nom: "Menu enfant",
-      description: "c'est un menu, pour les enfants",
-      urlPhoto: "chépasadéterminer"
+      nom: 'Menu enfant vegan',
+      description: 'c\'est un menu, pour les enfants vegan',
+      urlPhoto: 'chépasadéterminer'
     },
     {
-      nom: "Menu enfant",
-      description: "c'est un menu, pour les enfants",
-      urlPhoto: "chépasadéterminer"
+      nom: 'Menu gros',
+      description: 'Le gras c\'est la vie',
+      urlPhoto: 'chépasadéterminer'
     },
     {
-      nom: "Menu enfant",
-      description: "c'est un menu, pour les enfants",
-      urlPhoto: "chépasadéterminer"
+      nom: 'Menu pas cher',
+      description: 'Menu pour les pauvres et les radins',
+      urlPhoto: 'chépasadéterminer'
     }
   ];
 
@@ -271,18 +271,18 @@ async function load () {
 
   const ingredients: any = [
     { // 0
-      nom: "Steak de boeuf",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      nom: 'Steak de boeuf',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       exploitationId: exploitations[0].id
     },
     { // 1
-      nom: "Pomme de terre",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      nom: 'Pomme de terre',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       exploitationId: exploitations[0].id
     },
     { // 2
-      nom: "Pomme",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      nom: 'Pomme',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       exploitationId: exploitations[0].id
     }
   ];
