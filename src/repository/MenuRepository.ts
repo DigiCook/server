@@ -24,7 +24,7 @@ export class MenuRepository {
         Menu.alterTable();
         Menu.model.findOne({
           where: { id },
-          attributes: ["id", "nom", "description", "urlPhoto"],
+          attributes: ["id", "nom", "prix", "description", "urlPhoto"],
           include: [{
             model: Plat.model,
             attributes: ["id", "nom"],

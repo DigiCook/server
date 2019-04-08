@@ -11,6 +11,7 @@ export class Menu {
   public static model = sequelize.getInstance().define("menu", {
     nom: { type: Sequelize.STRING(255), allowNull: false },
     description: { type: Sequelize.STRING(255), allowNull: false },
+    prix: { type: Sequelize.FLOAT, allowNull: false },
     urlPhoto: { type: Sequelize.STRING(255), allowNull: false }
   });
 

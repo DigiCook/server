@@ -233,22 +233,26 @@ async function load() {
   const menus: any = [
     { // 0
       nom: "Menu enfant",
-      description: "c'est un menu, pour les enfants",
+      prix: 25,
+      description: "C'est un menu, pour les enfants. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       urlPhoto: "https://assets.afcdn.com/story/20180327/de-simples-oeufs-mayo-bien-tradi-mais-bien-mis-en-scene-pour-paques-1152577_w767h767c1cx707cy1060.jpg"
     },
     {
       nom: "Menu enfant vegan",
-      description: "c'est un menu, pour les enfants vegan",
+      prix: 30,
+      description: "C'est un menu, pour les enfants vegan. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       urlPhoto: "https://tacodelmar.com/wp-content/uploads/2016/12/16TDM001_MenuFeaturedImage_800x800_vegetarian-1.jpg"
     },
     {
       nom: "Menu Savoyard",
-      description: "Le gras c'est la vie",
+      prix: 28,
+      description: "Le gras c'est la vie ! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       urlPhoto: "https://static.750g.com/images/auto-525/dae8686192b04029793e2c6f3f374c44/thinkstockphotos-874481434.jpg"
     },
     {
       nom: "Menu economique",
-      description: "Menu pour les pauvres et les radins",
+      prix: 10,
+      description: "Menu pour les pauvres et les radins. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       urlPhoto: "http://www.lamaisonclose.org/wp/wp-content/uploads/2011/02/estomac_plein_assiette_vide-600x600.jpg"
     }
   ];
