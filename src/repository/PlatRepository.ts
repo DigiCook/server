@@ -1,4 +1,5 @@
 import { Plat } from "../models";
+import { TypePlat } from "../models/TypePlat";
 
 export class PlatRepository {
 
@@ -21,7 +22,16 @@ export class PlatRepository {
   public static getById(id: number) {
     return new Promise((resolve, reject) => {
       if (id !== null && id !== undefined && !isNaN(Number(id))) {
-        Plat.model.findOne({ where: { id } }).then((plat) => {
+        Plat.alterTable();
+        TypePlat.alterTable();
+        Plat.model.findOne({
+          where: { id },
+          attributes: ["id", "nom", "description", "prix", "urlPhoto"],
+          include: [{
+            model: TypePlat.model,
+            attributes: ["id", "libelle"]
+          }]
+        }).then((plat) => {
           if (plat) {
             console.info(`[PlatRepository:getById] Plat : ${plat.nom}`);
             resolve(plat);
