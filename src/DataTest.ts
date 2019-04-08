@@ -234,7 +234,7 @@ async function load() {
     { // 0
       nom: "Menu enfant",
       description: "c'est un menu, pour les enfants",
-      urlPhoto: "https://dinersburger.fr/cache/img/media.zelty.fr.images.289.2941-440x440.png"
+      urlPhoto: "https://assets.afcdn.com/story/20180327/de-simples-oeufs-mayo-bien-tradi-mais-bien-mis-en-scene-pour-paques-1152577_w767h767c1cx707cy1060.jpg"
     },
     {
       nom: "Menu enfant vegan",
