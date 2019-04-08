@@ -85,10 +85,10 @@ async function load() {
       typePlatId: typePlats[1].id
     },
     { // 5
-      nom: "Château la Coste",
+      nom: "Vin pétillant AOC Ayze",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       prix: 25,
-      urlPhoto: "https://chateau-la-coste.com/wp-content/uploads/2015/05/grand-vin-rouge-75cl.jpg",
+      urlPhoto: "https://www.fromages-et-vins-de-savoie.fr/wp-content/uploads/2017/05/AYZE-Cr-600x600.jpg",
       typePlatId: typePlats[3].id
     },
     { // 6
