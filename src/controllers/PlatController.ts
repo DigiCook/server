@@ -40,7 +40,7 @@ export class PlatController {
           res.status(400).json({ code: 404, message: "Not found !" });
         }
       }).catch((error) => {
-        console.error("[PlatController:getOne]", error);
+        console.error("[PlatController:getByTypePlatId]", error);
         res.status(400).json({ code: 400, message: "An Error occure !" });
       });
     } else {

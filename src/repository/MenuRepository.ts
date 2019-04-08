@@ -1,4 +1,4 @@
-import { Menu } from "../models";
+import { Menu, MenuPlat, Plat } from "../models";
 
 export class MenuRepository {
 
@@ -21,7 +21,18 @@ export class MenuRepository {
   public static getById(id: number) {
     return new Promise((resolve, reject) => {
       if (id !== null && id !== undefined && !isNaN(Number(id))) {
-        Menu.model.findOne({ where: { id } }).then((menu) => {
+        Menu.alterTable();
+        Menu.model.findOne({
+          where: { id },
+          attributes: ["id", "nom", "description", "urlPhoto"],
+          include: [{
+            model: Plat.model,
+            attributes: ["id", "nom"],
+            through: {
+              attributes: []
+            }
+          }]
+        }).then((menu) => {
           if (menu) {
             console.info(`[MenuRepository:getById] Menu : ${menu.nom}`);
             resolve(menu);
