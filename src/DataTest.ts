@@ -21,25 +21,29 @@ async function load() {
 
   // Create Type Plat.
   const typePlats: any = [
-    { libelle: "Entrée" }, //  0
-    { libelle: "Plat" },   //  1
-    { libelle: "Désert" }, //  2
-    { libelle: "Boisson" } //  3
+    { libelle: "Entrée" },  //  0
+    { libelle: "Plat" },    //  1
+    { libelle: "Dessert" }, //  2
+    { libelle: "Boisson" }  //  3
   ];
 
   TypePlat.alterTable();
-  await Promise.all(typePlats.map((typePlat, key) => {
-    return new Promise((resolve) => {
-      TypePlat.model.create(typePlat).then((res) => {
-        console.info(`[DataTest:load] TypePlat ${res.libelle} created.`);
-        typePlats[key] = res;
-        resolve(true);
-      }).catch((err) => {
-        console.error("[DataTest:load] ERROR :", err);
-        resolve(false);
+  for (const key in typePlats) {
+    if (key !== null) {
+      await new Promise((resolve) => {
+        const typePlat = typePlats[key];
+        console.log(typePlat);
+        TypePlat.model.create(typePlat).then((res) => {
+          console.info(`[DataTest:load] TypePlat ${res.libelle} created.`);
+          typePlats[key] = res;
+          resolve(true);
+        }).catch((err) => {
+          console.error("[DataTest:load] ERROR :", err);
+          resolve(false);
+        });
       });
-    });
-  }));
+    }
+  }
 
   // -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ ||| PLAT ||| _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -58,6 +62,62 @@ async function load() {
       prix: 24.5,
       urlPhoto: "https://assets.afcdn.com/recipe/20180705/80308_w420h344c1cx1944cy2592cxt0cyt0cxb3888cyb5184.jpg",
       typePlatId: typePlats[2].id
+    },
+    { // 2
+      nom: "Coca Cola",
+      description: "Lorem ipsum dolor sit amet.",
+      prix: 1.5,
+      urlPhoto: "https://cocacolaweb.fr/wp-content/uploads/2009/03/coke_fa_l00157.jpeg",
+      typePlatId: typePlats[3].id
+    },
+    { // 3
+      nom: "Salade Savoyarde",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      prix: 10,
+      urlPhoto: "https://cache.magicmaman.com/data/photo/w600_c18/48/salade.jpg",
+      typePlatId: typePlats[0].id
+    },
+    { // 4
+      nom: "Raclette",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      prix: 22,
+      urlPhoto: "https://cdn6.elektronik-star.de/out/pictures/generated/product/2/700_700_75/10030306_0002_ambiente_Klarstein_Appenzell_2G_Raclette_reedit.jpg",
+      typePlatId: typePlats[1].id
+    },
+    { // 5
+      nom: "Château la Coste",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      prix: 25,
+      urlPhoto: "https://chateau-la-coste.com/wp-content/uploads/2015/05/grand-vin-rouge-75cl.jpg",
+      typePlatId: typePlats[3].id
+    },
+    { // 6
+      nom: "Salade de sarrasin décortiqué grillé",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      prix: 12,
+      urlPhoto: "http://www.markal.fr/media/salade-sarrasin-decortique.jpg",
+      typePlatId: typePlats[0].id
+    },
+    { // 7
+      nom: "Cheesecake de Mousse au chocolat",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      prix: 8,
+      urlPhoto: "https://thebusybaker.ca/wp-content/uploads/2017/11/vegan-chocolate-mousse-cheesecake-fbig4.jpg",
+      typePlatId: typePlats[2].id
+    },
+    { // 8
+      nom: "Pattes",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      prix: 5,
+      urlPhoto: "https://cache.magicmaman.com/data/photo/w600_c18/10f/9284-coquillettesau-beurre1.jpg",
+      typePlatId: typePlats[1].id
+    },
+    { // 9
+      nom: "Eau",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      prix: 0.5,
+      urlPhoto: "http://www.asmagic.fr/img/p/2/8/3/1/2831-large.jpg",
+      typePlatId: typePlats[3].id
     }
   ];
 
@@ -237,19 +297,19 @@ async function load() {
       description: "C'est un menu, pour les enfants. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       urlPhoto: "https://assets.afcdn.com/story/20180327/de-simples-oeufs-mayo-bien-tradi-mais-bien-mis-en-scene-pour-paques-1152577_w767h767c1cx707cy1060.jpg"
     },
-    {
+    { // 1
       nom: "Menu enfant vegan",
-      prix: 30,
+      prix: 20,
       description: "C'est un menu, pour les enfants vegan. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       urlPhoto: "https://tacodelmar.com/wp-content/uploads/2016/12/16TDM001_MenuFeaturedImage_800x800_vegetarian-1.jpg"
     },
-    {
+    { // 2
       nom: "Menu Savoyard",
-      prix: 28,
+      prix: 30,
       description: "Le gras c'est la vie ! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       urlPhoto: "https://static.750g.com/images/auto-525/dae8686192b04029793e2c6f3f374c44/thinkstockphotos-874481434.jpg"
     },
-    {
+    { // 3
       nom: "Menu economique",
       prix: 10,
       description: "Menu pour les pauvres et les radins. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
@@ -354,6 +414,38 @@ async function load() {
     {
       platId: plats[1].id,
       menuId: menus[0].id
+    },
+    {
+      platId: plats[2].id,
+      menuId: menus[0].id
+    },
+    {
+      platId: plats[3].id,
+      menuId: menus[2].id
+    },
+    {
+      platId: plats[4].id,
+      menuId: menus[2].id
+    },
+    {
+      platId: plats[5].id,
+      menuId: menus[2].id
+    },
+    {
+      platId: plats[6].id,
+      menuId: menus[1].id
+    },
+    {
+      platId: plats[7].id,
+      menuId: menus[1].id
+    },
+    {
+      platId: plats[8].id,
+      menuId: menus[3].id
+    },
+    {
+      platId: plats[9].id,
+      menuId: menus[3].id
     }
   ];
 

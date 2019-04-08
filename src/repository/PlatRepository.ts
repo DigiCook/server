@@ -53,7 +53,7 @@ export class PlatRepository {
       if (id !== null && id !== undefined && !isNaN(Number(id))) {
         Plat.model.findAll({
           where: { typePlatId: id },
-          attributes: ["id", "nom", "prix"]
+          attributes: ["id", "nom", "prix", "urlPhoto"]
         }).then((result) => {
           // If result is null or undefined, send an empty array.
           result = result ? result : [];
