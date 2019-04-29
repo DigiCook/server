@@ -53,14 +53,14 @@ async function load() {
       nom: "Steak Frites",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       prix: 24.5,
-      urlPhoto: "https://media1.s-nbcnews.com/j/newscms/2017_20/1215042/food-today-170517-tease3_d47a6fa4727bee5705981981e47986aa.today-inline-large.jpg",
+      urlPhoto: "https://media.blueapron.com/recipes/2121/square_newsletter_images/1490637106-4-0003-6001/403_2PRE07-steak-frites-18311_WEB_SQ_hi_res.jpg",
       typePlatId: typePlats[1].id
     },
     { // 1
       nom: "Tarte aux Pommes",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       prix: 24.5,
-      urlPhoto: "https://assets.afcdn.com/recipe/20180705/80308_w420h344c1cx1944cy2592cxt0cyt0cxb3888cyb5184.jpg",
+      urlPhoto: "https://static.cuisineaz.com/610x610/i594-photo-de-tarte-aux-pommes-bouquet-de-rose.jpg",
       typePlatId: typePlats[2].id
     },
     { // 2
