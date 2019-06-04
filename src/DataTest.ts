@@ -4,12 +4,14 @@ import {
   Ingredient,
   Menu,
   MenuPlat,
+  Message,
   Personne,
   Plat,
   PlatIngredient,
   Restaurant,
   RestaurantMenu,
   RestaurantPlat,
+  Table,
   TypePlat
 } from "./models";
 import { TypePersonne } from "./models/Personne";
@@ -520,6 +522,72 @@ async function load() {
       }).then((res) => {
         console.info(`[DataTest:load] RestaurantMenu: Restaurant ${res.restaurantId} have Menu ${res.menuId} created.`);
         restaurantMenus[key] = res;
+        resolve(true);
+      }).catch((err) => {
+        console.error("[DataTest:load] ERROR :", err);
+        resolve(false);
+      });
+    });
+  }));
+
+  // -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ ||| TABLES ||| _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+  const tables: any = [
+    { // 0
+      libelle: "A1",
+      restaurantId: restaurants[0].id
+    },
+    { // 1
+      libelle: "A2",
+      restaurantId: restaurants[0].id
+    }
+  ];
+
+  Table.alterTable();
+  await Promise.all(tables.map((table, key) => {
+    return new Promise((resolve) => {
+      Table.model.create(table, {
+        include: [
+          { association: Table.toRestaurant }
+        ]
+      }).then((res) => {
+        console.info(`[DataTest:load] Table: Table ${res.id} created.`);
+        tables[key] = res;
+        resolve(true);
+      }).catch((err) => {
+        console.error("[DataTest:load] ERROR :", err);
+        resolve(false);
+      });
+    });
+  }));
+
+  // -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ ||| MESSAGES ||| _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+  const messages: any = [
+    { // 0
+      message: "Hello World !",
+      tableId: tables[0].id
+    },
+    { // 1
+      message: "Très bon le steak frite",
+      tableId: tables[0].id
+    },
+    { // 2
+      message: "Quelle coupe de Tomate GG <3",
+      tableId: tables[1].id
+    }
+  ];
+
+  Message.alterTable();
+  await Promise.all(messages.map((message, key) => {
+    return new Promise((resolve) => {
+      Message.model.create(message, {
+        include: [
+          { association: Message.toTable }
+        ]
+      }).then((res) => {
+        console.info(`[DataTest:load] Message: Message ${res.id} have table ${res.tableId} created.`);
+        messages[key] = res;
         resolve(true);
       }).catch((err) => {
         console.error("[DataTest:load] ERROR :", err);

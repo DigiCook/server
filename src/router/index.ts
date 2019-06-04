@@ -1,6 +1,7 @@
 import { ExploitationController } from "../controllers/ExploitationController";
 import { IngredientController } from "../controllers/IngredientController";
 import { MenuController } from "../controllers/MenuController";
+import { MessageController } from "../controllers/MessageController";
 import { PlatController } from "../controllers/PlatController";
 import { TypePlatController } from "../controllers/TypePlatController";
 
@@ -34,4 +35,8 @@ export function load(app) {
     .get(IngredientController.getAll);
   app.route("/api/ingredient/:ingredientId")
     .get(IngredientController.getOne);
+
+  // Messages Routes
+  app.route("/api/messages")
+    .get(MessageController.getAll)
 }
