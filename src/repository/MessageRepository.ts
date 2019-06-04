@@ -36,7 +36,19 @@ export class MessageRepository {
         ]
       }).then((result) => {
         console.info(`[MessageRepository:create] Message created ${result.id} - ${result.message}`);
-        resolve(result);
+        Message.model.findAll({
+          where: { id: result.id },
+          attributes: ["id", "message", "createdAt"],
+          include: [{
+            model: Table.model,
+            attributes: ["id", "libelle"]
+          }]
+        }).then((fullMessage) => {
+          resolve(fullMessage);
+        }).catch((error) => {
+          console.error("[MessageRepository:create]", error);
+          reject(error);
+        });
       }).catch((error) => {
         console.error("[MessageRepository:create]", error);
         reject(error);

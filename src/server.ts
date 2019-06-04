@@ -7,6 +7,7 @@ import express = require("express");
 import Stream = require("node-rtsp-stream");
 import router = require("./router");
 import sequelize = require("./services/sequelize");
+import socket = require("./services/socket");
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 sequelize.getInstance();
+socket.instance();
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -79,15 +81,15 @@ app.get("/live", (req, res) => {
   });
 });
 
-const a = new Stream({
+/* const a = new Stream({
   name: "name",
   streamUrl: "rtsp://admin:admin@193.168.1.10/11",
-  wsPort: 9999,
+  wsPort: 9998,
   ffmpegOptions: { // options ffmpeg flags
     "-stats": "", // an option with no neccessary value uses a blank string
     "-r": 30 // options with required values specify the value after the key
   }
-});
+}); */
 // TMP
 
 app.listen(port, () => {

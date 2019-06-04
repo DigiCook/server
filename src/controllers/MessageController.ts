@@ -1,4 +1,5 @@
 import { ICreateMessageBody, MessageRepository } from "../repository/MessageRepository";
+import socket = require("../services/socket");
 
 export class MessageController {
 
@@ -20,7 +21,9 @@ export class MessageController {
         tableId: body.tableId
       };
 
-      MessageRepository.create(payload).then(() => {
+      MessageRepository.create(payload).then((message) => {
+        socket.instance().io.emit("message", message);
+
         res.status(200).json({ code: 200, message: "Message created" });
       }).catch((error) => {
         console.error("[MessageController:create]", error);
