@@ -18,7 +18,7 @@ export class MessageController {
       const payload: ICreateMessageBody = {
         message: body.message,
         tableId: body.tableId
-      }
+      };
 
       MessageRepository.create(payload).then(() => {
         res.status(200).json({ code: 200, message: "Message created" });
