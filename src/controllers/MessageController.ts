@@ -22,7 +22,9 @@ export class MessageController {
       };
 
       MessageRepository.create(payload).then((message) => {
-        socket.instance().io.emit("message", message);
+        if (socket.instance().haveClient()) {
+          socket.instance().io.emit("message", message);
+        }
 
         res.status(200).json({ code: 200, message: "Message created" });
       }).catch((error) => {
