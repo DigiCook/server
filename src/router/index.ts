@@ -39,4 +39,5 @@ export function load(app) {
   // Messages Routes
   app.route("/api/messages")
     .get(MessageController.getAll)
+    .post(MessageController.create);
 }

@@ -16,12 +16,36 @@ export class MessageRepository {
       }).then((result) => {
         // If result is null or undefined, send an empty array.
         result = result ? result : [];
-        console.info(`[TypePlatRepository:getAll] Type Plat size : ${result.length}`);
+        console.info(`[MessageRepository:getAll] Type Plat size : ${result.length}`);
         resolve(result);
       }).catch((error) => {
-        console.error("[TypePlatRepository:getAll]", error);
+        console.error("[v:getAll]", error);
         reject(error);
       });
     });
   }
+
+  public static create(message: ICreateMessageBody) {
+    return new Promise((resolve, reject) => {
+      console.info(`[MessageRepository:create] tableId ${message.tableId} message: ${message.message}`);
+      Message.alterTable();
+
+      Message.model.create(message, {
+        include: [
+          { association: Message.toTable }
+        ]
+      }).then((result) => {
+        console.info(`[MessageRepository:create] Message created ${result.id} - ${result.message}`);
+        resolve(result);
+      }).catch((error) => {
+        console.error("[MessageRepository:create]", error);
+        reject(error);
+      });
+    });
+  }
+}
+
+export interface ICreateMessageBody {
+  message: string;
+  tableId: number;
 }
