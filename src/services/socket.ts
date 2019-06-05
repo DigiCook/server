@@ -3,7 +3,7 @@ import http = require("http");
 import socket = require("socket.io");
 
 dotenv.config();
-const portSocket = process.env.PORT_SOCKET || 5000;
+const portSocket = process.env.PORT_SOCKET || 80;
 
 let mInstance: Socket = null;
 
