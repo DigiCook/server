@@ -10,8 +10,9 @@ import sequelize = require("./services/sequelize");
 import socket = require("./services/socket");
 
 dotenv.config();
-
+// @ts-ignore
 if (typeof(PhusionPassenger) !== "undefined") {
+  // @ts-ignore
   PhusionPassenger.configure({ autoInstall: false });
 }
 
@@ -96,6 +97,7 @@ app.get("/live", (req, res) => {
 }); */
 // TMP
 
+// @ts-ignore
 if (typeof(PhusionPassenger) !== "undefined") {
   app.listen("passenger");
 } else {
