@@ -11,6 +11,10 @@ import socket = require("./services/socket");
 
 dotenv.config();
 
+if (typeof(PhusionPassenger) != "undefined") {
+  PhusionPassenger.configure({ autoInstall: false });
+}
+
 const app = express();
 const port = process.env.PORT || 4000;
 
@@ -92,9 +96,13 @@ app.get("/live", (req, res) => {
 }); */
 // TMP
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+if (typeof(PhusionPassenger) != "undefined") {
+  app.listen("passenger");
+} else {
+  app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+  });
+}
 
 app.use((req: any, res: any) => {
   res.status(404).send({url: `${req.originalUrl} not found` });
