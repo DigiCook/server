@@ -8,15 +8,15 @@ class Db {
   public sequelize: any;
 
   constructor() {
-    const port: any = process.env.POSTGRESQL_PORT;
+    const port: any = process.env.DATABASE_PORT;
 
-    this.sequelize = new Sequelize(process.env.POSTGRESQL_DB_NAME,
-      process.env.POSTGRESQL_USERNAME,
-      process.env.POSTGRESQL_PASSWORD,
+    this.sequelize = new Sequelize(process.env.DATABASE_DB_NAME,
+      process.env.DATABASE_USERNAME,
+      process.env.DATABASE_PASSWORD,
       {
-        host: process.env.POSTGRESQL_HOST,
+        host: process.env.DATABASE_HOST,
         port,
-        dialect: "postgres",
+        dialect: process.env.DATABASE_DIALECT,
         operatorsAliases: false,
         pool: {
           max: 5,
