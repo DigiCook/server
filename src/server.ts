@@ -11,7 +11,7 @@ import socket = require("./services/socket");
 
 dotenv.config();
 
-if (typeof(PhusionPassenger) != "undefined") {
+if (typeof(PhusionPassenger) !== "undefined") {
   PhusionPassenger.configure({ autoInstall: false });
 }
 
@@ -96,7 +96,7 @@ app.get("/live", (req, res) => {
 }); */
 // TMP
 
-if (typeof(PhusionPassenger) != "undefined") {
+if (typeof(PhusionPassenger) !== "undefined") {
   app.listen("passenger");
 } else {
   app.listen(port, () => {
