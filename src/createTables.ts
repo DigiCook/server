@@ -4,6 +4,8 @@ import sequelize = require("./services/sequelize");
 sequelize.getInstance();
 
 async function load() {
+  await sequelize.getInstance().query("SET FOREIGN_KEY_CHECKS = 0", { raw: true });
+
   const keys = Object.keys(Models);
 
   // Create Tabl
@@ -48,10 +50,13 @@ async function load() {
       }
     });
   }
+
+  await sequelize.getInstance().query("SET FOREIGN_KEY_CHECKS = 1", { raw: true });
+
   console.info("[CreateTable:load] *** All alterTables executed ***");
   console.info("[CreateTable:load] Finish");
 
   process.exit(0);
 }
 
-load();
+setTimeout(load, 1000);
