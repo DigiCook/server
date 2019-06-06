@@ -1,19 +1,20 @@
 import dotenv = require("dotenv");
 import http = require("http");
-import socket = require("socket.io");
+import socketIo = require("socket.io");
 
 dotenv.config();
-const portSocket = process.env.PORT_SOCKET || 80;
+const port = process.env.PORT || 4000;
 
 let mInstance: Socket = null;
 
 class Socket {
   public io: any = null;
+  public server: any = null;
   private clients: any[] = [];
 
-  constructor() {
-    const socketServer = http.createServer();
-    this.io = socket(socketServer);
+  constructor(app) {
+    this.server = http.createServer(app);
+    this.io = socketIo.listen(this.server);
 
     this.io.on("connection", (client) => {
       this.clients.push(client);
@@ -29,7 +30,14 @@ class Socket {
        });
     });
 
-    socketServer.listen(portSocket);
+    // @ts-ignore
+    if (typeof(PhusionPassenger) !== "undefined") {
+      this.server.listen("passenger");
+    } else {
+      this.server.listen(port, () => {
+        console.log(`Listening on port ${port}`);
+      });
+    }
   }
 
   public haveClient(): boolean {
@@ -38,9 +46,13 @@ class Socket {
 }
 
 export function instance(): Socket {
-  if (!mInstance) {
-    mInstance = new Socket();
-  }
-
   return mInstance;
+}
+
+export function init(app) {
+  if (!mInstance && app) {
+    console.info("[Socket:init]");
+
+    mInstance = new Socket(app);
+  }
 }

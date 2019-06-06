@@ -4,7 +4,7 @@ import cors = require("cors");
 import dotenv = require("dotenv");
 import events = require("events");
 import express = require("express");
-import Stream = require("node-rtsp-stream");
+// import Stream = require("node-rtsp-stream");
 import router = require("./router");
 import sequelize = require("./services/sequelize");
 import socket = require("./services/socket");
@@ -17,10 +17,8 @@ if (typeof(PhusionPassenger) !== "undefined") {
 }
 
 const app = express();
-const port = process.env.PORT || 4000;
 
 sequelize.getInstance();
-socket.instance();
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -97,14 +95,8 @@ app.get("/live", (req, res) => {
 }); */
 // TMP
 
-// @ts-ignore
-if (typeof(PhusionPassenger) !== "undefined") {
-  app.listen("passenger");
-} else {
-  app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
-  });
-}
+// init the socket server and express server on the same port !
+socket.init(app);
 
 app.use((req: any, res: any) => {
   res.status(404).send({url: `${req.originalUrl} not found` });
