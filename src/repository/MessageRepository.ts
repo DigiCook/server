@@ -55,6 +55,19 @@ export class MessageRepository {
       });
     });
   }
+
+  public static delete(message: any) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        console.info(`[MessageRepository:delete] Try to delete message with id ${message.id}`);
+        await Message.model.destroy({ where: { id: message.id } });
+        resolve(true);
+      } catch (error) {
+        console.error("[MessageRepository:delete] Error", error);
+        reject(error);
+      }
+    });
+  }
 }
 
 export interface ICreateMessageBody {

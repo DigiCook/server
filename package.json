@@ -12,6 +12,7 @@
     "online": "autossh -M 0 -R digicook:80:localhost:4442 serveo.net",
     "onlineSocket": "autossh -M 0 -R digicook-socket:80:localhost:4444 serveo.net",
     "createTables": "ts-node src/createTables.ts",
+    "cron-messages": "ts-node src/cron/deleteOldMessages.ts",
     "load": "npm run createTables && ts-node src/DataTest.ts",
     "test": "mocha --compilers js:babel-core/register"
   },
@@ -47,6 +48,7 @@
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "moment": "^2.24.0",
     "mysql2": "^1.6.5",
     "pg": "^7.9.0",
     "pg-hstore": "^2.3.2",
