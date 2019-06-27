@@ -548,11 +548,11 @@ async function load() {
 
   const tables: any = [
     { // 0
-      libelle: "A1",
+      libelle: "Buse",
       restaurantId: restaurants[0].id
     },
     { // 1
-      libelle: "A2",
+      libelle: "Héron",
       restaurantId: restaurants[0].id
     }
   ];
