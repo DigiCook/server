@@ -108,7 +108,7 @@ async function load() {
       typePlatId: typePlats[2].id
     },
     { // 8
-      nom: "Pattes",
+      nom: "Pates",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       prix: 5,
       urlPhoto: "https://cache.magicmaman.com/data/photo/w600_c18/10f/9284-coquillettesau-beurre1.jpg",
@@ -120,6 +120,20 @@ async function load() {
       prix: 0.5,
       urlPhoto: "http://www.asmagic.fr/img/p/2/8/3/1/2831-large.jpg",
       typePlatId: typePlats[3].id
+    },
+    { // 10
+      nom: "Blanquette de poisson",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      prix: 17,
+      urlPhoto: "https://static.cuisineaz.com/610x610/i130988-blanquette-de-poisson-au-cookeo.jpeg",
+      typePlatId: typePlats[1].id
+    },
+    { // 11
+      nom: "Banana split",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      prix: 7.5,
+      urlPhoto: "https://www.iheartnaptime.net/wp-content/uploads/2018/07/banana-split-500x500.jpg",
+      typePlatId: typePlats[2].id
     }
   ];
 
@@ -296,26 +310,26 @@ async function load() {
     { // 0
       nom: "Menu enfant",
       prix: 25,
-      description: "C'est un menu, pour les enfants. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       urlPhoto: "https://assets.afcdn.com/story/20180327/de-simples-oeufs-mayo-bien-tradi-mais-bien-mis-en-scene-pour-paques-1152577_w767h767c1cx707cy1060.jpg"
     },
     { // 1
-      nom: "Menu enfant vegan",
-      prix: 20,
-      description: "C'est un menu, pour les enfants vegan. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-      urlPhoto: "https://tacodelmar.com/wp-content/uploads/2016/12/16TDM001_MenuFeaturedImage_800x800_vegetarian-1.jpg"
+      nom: "Menu de la mer",
+      prix: 21,
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      urlPhoto: "https://static.cuisineaz.com/610x610/i93391-blanquette-de-saumon-cabillaud-et-fruits-de-mer.jpg"
     },
     { // 2
       nom: "Menu Savoyard",
       prix: 30,
-      description: "Le gras c'est la vie ! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       urlPhoto: "https://static.750g.com/images/auto-525/dae8686192b04029793e2c6f3f374c44/thinkstockphotos-874481434.jpg"
     },
     { // 3
-      nom: "Menu economique",
+      nom: "Menu végan",
       prix: 10,
-      description: "Menu pour les pauvres et les radins. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-      urlPhoto: "http://www.lamaisonclose.org/wp/wp-content/uploads/2011/02/estomac_plein_assiette_vide-600x600.jpg"
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      urlPhoto: "https://tacodelmar.com/wp-content/uploads/2016/12/16TDM001_MenuFeaturedImage_800x800_vegetarian-1.jpg"
     }
   ];
 
@@ -434,19 +448,19 @@ async function load() {
       menuId: menus[2].id
     },
     {
+      platId: plats[10].id,
+      menuId: menus[1].id
+    },
+    {
+      platId: plats[11].id,
+      menuId: menus[1].id
+    },
+    {
       platId: plats[6].id,
-      menuId: menus[1].id
-    },
-    {
-      platId: plats[7].id,
-      menuId: menus[1].id
-    },
-    {
-      platId: plats[8].id,
       menuId: menus[3].id
     },
     {
-      platId: plats[9].id,
+      platId: plats[7].id,
       menuId: menus[3].id
     }
   ];
